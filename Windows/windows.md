@@ -61,10 +61,6 @@ tree
 
 ![Comando tree](images/tree.png)
 
-### ICACLS (Integrity Control Access Control List)
-🔹
-
-
 ## Permisos
 🔹El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.
 Algunos de los permisos claves son:<br />
@@ -81,9 +77,60 @@ Algunos de los permisos claves son:<br />
 
 🔹Los archivos y carpetas heredan permisos NTFS de su directorio padre para facilitar la administración, así los adminstradores no necesitan configurar explícitamente permisos para cada archivo y carpeta, ya que esto llevaría mucho tiempo.<br />
 🔹Si los permisos no necesitan ser configurados explícitamente, un administrador puede deshabilitar la herencia de permisos para archivos y carpetas necesarios y después configurar permisos directamente para cada uno.<br />
+
+### ICACLS (Integrity Control Access Control List)
+[Documentación ICACLS](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls)
+
+🔹Los permisos NTFS en archivos y directorios en Windows se puede administrar usando el explorador de archivos en la pestaña seguridad.<br />
+🔹También usando la herramienta **icacls** desde la línea de comandos (CMD).<br />
+
+> [!TIP]
+> Listar permisos NTFS
+
+```cmd
+icacls C:\
+```
+
+![icacls](images/icacls.png)
+
+🔹El nivel de acceso a los recursos aparece después de cada usuario en el resultado mostrado en pantalla.<br />
+🔹Las posibles configuraciones de herencia son:
+- **CI**: container inherit
+- **OI**: object inherit
+- **IO**: inherit only
+- **NP**: do not propagate inherit
+- **I**: permission inherited from parent container
+🔹Los permisos de acceso básicos son:
+- **F**: full access
+- **D**: delete access
+- **N**: no access
+- **RX**: read and execute access
+- **R**: read-only access
+- **W**: write-only access
+
+🔹Se pueden otorgar y eliminar permisos desde la línea de comandos usando **icacls**.<br />
+
+> [!TIP]
+> Otorgar permiso de control total a un usuario determinado
+
+```cmd
+icacls c:\users /grant victim:f
+```
+
+![icacls grant permission](images/icacls-grant.png)
+
+> [!TIP]
+> Eliminar permiso de control total a un usuario determinado
+
+```cmd
+icacls c:\users /remove victim
+```
+
+![icacls remove](images/icacls-remove.png)
+
 ## Recursos compartidos
 ## Acceso remoto
-Algunas de las tecnologías más comunes de acceso remoto son:
+🔹Algunas de las tecnologías más comunes de acceso remoto son:
 - Virtual Private Networks (VPN)
 - Secure Shell (SSH)
 - File Transfer Protocol (FTP)
@@ -93,20 +140,20 @@ Algunas de las tecnologías más comunes de acceso remoto son:
 ### Remote Desktop Protocol (RDP)
 🔹**RDP** usa una arquitectura client/servidor donde la aplicación del lado del cliente se usa para especificar la dirección IP objetivo o el hostname a través de una red en donde RDP está habilitado.<br />
 🔹La computadora objetivo donde el acceso remoto por RDP está habilitado se considera el servidor.<br />
-🔹El puerto por defecto donde RDP escucha es el **3389**.
-🔹La dirección IP se usa como un identificador lógico para una computadora en una red y un puerto lógico es un identificador asignado a una aplicación.
-🔹Si nos conectamos a una máquina Windows desde una máquina Windows se puede usar la aplicación incorporada **Remote Desktop Connection**.
+🔹El puerto por defecto donde RDP escucha es el **3389**.<br />
+🔹La dirección IP se usa como un identificador lógico para una computadora en una red y un puerto lógico es un identificador asignado a una aplicación.<br />
+🔹Si nos conectamos a una máquina Windows desde una máquina Windows se puede usar la aplicación incorporada **Remote Desktop Connection**.<br />
 
 ![RDP](images/rdp.png)
 
-🔹Para que esto funcione el acceso remoto tiene que estar permitido en la máquina Windows objetivo.
-🔹Por defecto el acceso remoto no está permitido en el sistema operativo Windows.
-🔹Remote Desktop Connection permite guardar perfiles.
-🔹Buscar archivos **.rdp**.
+🔹Para que esto funcione el acceso remoto tiene que estar permitido en la máquina Windows objetivo.<br />
+🔹Por defecto el acceso remoto no está permitido en el sistema operativo Windows.<br />
+🔹Remote Desktop Connection permite guardar perfiles.<br />
+🔹Buscar archivos **.rdp**.<br />
 ### xfreerdp
 [Página oficial de xfreerdp](https://www.freerdp.com/)
 
-🔹Desde una máquina Linux se puede usar una herramienta llamada **xfreerdp** para acceder de manera remota a una máquina Windows.
+🔹Desde una máquina Linux se puede usar una herramienta llamada **xfreerdp** para acceder de manera remota a una máquina Windows.<br />
 
 ```bash
 xfreerdp /v:<direccion-ip> /u:<usuario> /p:<contraseña>
