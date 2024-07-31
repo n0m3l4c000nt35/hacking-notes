@@ -68,6 +68,7 @@ Algunos de los permisos claves son:<br />
 | Read                 | Permite ver y listar directorios y subdirectorios y ver el contenido de archivos.                                                   |
 | Traverse Folder      | Permite o niega la posibilidad de atravesar directorios para alcanzar otros archivos o directorios.<br>                             |
 |                      |                                                                                                                                     |
+
 🔹Los archivos y carpetas heredan permisos NTFS de su directorio padre para facilitar la administración, así los adminstradores no necesitan configurar explícitamente permisos para cada archivo y carpeta, ya que esto llevaría mucho tiempo.<br />
 🔹Si los permisos no necesitan ser configurados explícitamente, un administrador puede deshabilitar la herencia de permisos para archivos y carpetas necesarios y después configurar permisos directamente para cada uno.<br />
 ## Recursos compartidos
