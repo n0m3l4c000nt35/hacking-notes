@@ -1,8 +1,8 @@
 ## Estructura del sistema operativo
-El directorio raíz de Windows normalmente es `C`.
-El directorio raíz también conocido como la partition de arranque es donde el sistema operativo se instala.
-A otros discos físicos o virtuales se les asigna otra letra.
-La estructura del directorio de la partición de arranque es la siguiente:
+🔹El directorio raíz de Windows normalmente es `C`.
+🔹El directorio raíz también conocido como la partition de arranque es donde el sistema operativo se instala.
+🔹A otros discos físicos o virtuales se les asigna otra letra.
+🔹La estructura del directorio de la partición de arranque es la siguiente:
 
 | Directorio                 | Función                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -24,7 +24,7 @@ Obtener información del sistema operativo con `PowerShell`
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 ```
 ## Sistema de archivos
-Hay 5 tipos de sistema de archivos:
+🔹Hay 5 tipos de sistema de archivos:
 1. **FAT12**: No se usa más en sistema operativos Windows modernos.
 2. **FAT16**: No se usa más en sistema operativos Windows modernos.
 3. FAT32
@@ -32,11 +32,11 @@ Hay 5 tipos de sistema de archivos:
 5. exFAT
 
 **FAT**: File Allocation Table
-Se usa ampliamente en muchos tipos de dispositivos de almacenamiento:
+🔹Se usa ampliamente en muchos tipos de dispositivos de almacenamiento:
 - Memorias USB
 - Tarjetas SD
-Se usa para formatear discos duros.
-El número 32 hace referencia al hecho que FAT32 usa 32 bits de datos para identificar conjuntos de datos en un dispositivo de almacenamiento.
+🔹Se usa para formatear discos duros.
+🔹El número 32 hace referencia al hecho que FAT32 usa 32 bits de datos para identificar conjuntos de datos en un dispositivo de almacenamiento.
 
 Explorar el sistema de archivos con `cmd`
 
@@ -53,7 +53,7 @@ tree "c:\" /f | more
 ```
 
 ## Permisos
-El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.
+🔹El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.
 Algunos de los permisos claves son:
 
 | Tipo de permiso      | Descripción                                                                                                                         |
@@ -66,8 +66,8 @@ Algunos de los permisos claves son:
 | Read                 | Permite ver y listar directorios y subdirectorios y ver el contenido de archivos.                                                   |
 | Traverse Folder      | Permite o niega la posibilidad de atravesar directorios para alcanzar otros archivos o directorios.<br>                             |
 |                      |                                                                                                                                     |
-Los archivos y carpetas heredan permisos NTFS de su directorio padre para facilitar la administración, así los adminstradores no necesitan configurar explícitamente permisos para cada archivo y carpeta, ya que esto llevaría mucho tiempo.
-Si los permisos no necesitan ser configurados explícitamente, un administrador puede deshabilitar la herencia de permisos para archivos y carpetas necesarios y después configurar permisos directamente para cada uno.
+🔹Los archivos y carpetas heredan permisos NTFS de su directorio padre para facilitar la administración, así los adminstradores no necesitan configurar explícitamente permisos para cada archivo y carpeta, ya que esto llevaría mucho tiempo.
+🔹Si los permisos no necesitan ser configurados explícitamente, un administrador puede deshabilitar la herencia de permisos para archivos y carpetas necesarios y después configurar permisos directamente para cada uno.
 ## Recursos compartidos
 ## Acceso remoto
 ### Remote Desktop Protocol (RDP)
