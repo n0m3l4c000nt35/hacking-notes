@@ -18,7 +18,8 @@
 | System, System32, SysWOW64 | Contiene todas las DLLs necesarias para las principales características de Windows y Windows API.<br>El sistema operativo buscar estos directorios cada vez que un programa solicita cargar una DLL sin especificar una ruta absoluta.                                                                                                                                                                                                                                                                                                                                                                                   |
 | WinSxs                     | El WIndows Component Store contiene una copia de todos los componentes de Windows, actualizaciones y service packs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-Obtener información del sistema operativo con `PowerShell`
+> [!TIP]
+> Obtener información del sistema operativo con `PowerShell`
 
 ```powershell
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
@@ -38,7 +39,8 @@ Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 🔹Se usa para formatear discos duros.<br />
 🔹El número 32 hace referencia al hecho que FAT32 usa 32 bits de datos para identificar conjuntos de datos en un dispositivo de almacenamiento.<br />
 
-Explorar el sistema de archivos con `cmd`
+>[!TIP]
+>Explorar el sistema de archivos con `cmd`
 
 [Comando dir](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dir)
 
