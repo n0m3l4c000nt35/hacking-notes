@@ -61,6 +61,10 @@ tree
 
 ![Comando tree](images/tree.png)
 
+### ICACLS (Integrity Control Access Control List)
+🔹
+
+
 ## Permisos
 🔹El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.
 Algunos de los permisos claves son:<br />
@@ -87,14 +91,29 @@ Algunas de las tecnologías más comunes de acceso remoto son:
 - Windows Remote Management (o PowerShell Remoting) (WinRM)
 - Remote Desktop Protocol (RDP)
 ### Remote Desktop Protocol (RDP)
-🔹 **RDP** usa una arquitectura client/servidor donde la aplicación del lado del cliente se usa para especificar la dirección IP objetivo o el hostname a través de una red en donde RDP está habilitado.<br />
+🔹**RDP** usa una arquitectura client/servidor donde la aplicación del lado del cliente se usa para especificar la dirección IP objetivo o el hostname a través de una red en donde RDP está habilitado.<br />
 🔹La computadora objetivo donde el acceso remoto por RDP está habilitado se considera el servidor.<br />
 🔹El puerto por defecto donde RDP escucha es el **3389**.
 🔹La dirección IP se usa como un identificador lógico para una computadora en una red y un puerto lógico es un identificador asignado a una aplicación.
+🔹Si nos conectamos a una máquina Windows desde una máquina Windows se puede usar la aplicación incorporada **Remote Desktop Connection**.
+
+![RDP](images/rdp.png)
+
+🔹Para que esto funcione el acceso remoto tiene que estar permitido en la máquina Windows objetivo.
+🔹Por defecto el acceso remoto no está permitido en el sistema operativo Windows.
+🔹Remote Desktop Connection permite guardar perfiles.
+🔹Buscar archivos **.rdp**.
 ### xfreerdp
+[Página oficial de xfreerdp](https://www.freerdp.com/)
+
+🔹Desde una máquina Linux se puede usar una herramienta llamada **xfreerdp** para acceder de manera remota a una máquina Windows.
+
 ```bash
 xfreerdp /v:<direccion-ip> /u:<usuario> /p:<contraseña>
 ```
+
+![xfreerdp](images/xfreerdp.png)
+
 ## Servicios
 ## Procesos
 ## Sesiones de Windows
