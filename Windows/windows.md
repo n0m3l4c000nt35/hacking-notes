@@ -39,6 +39,7 @@ Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 🔹Se usa ampliamente en muchos tipos de dispositivos de almacenamiento:<br />
 - Memorias USB
 - Tarjetas SD
+
 🔹Se usa para formatear discos duros.<br />
 🔹El número 32 hace referencia al hecho que FAT32 usa 32 bits de datos para identificar conjuntos de datos en un dispositivo de almacenamiento.<br />
 
