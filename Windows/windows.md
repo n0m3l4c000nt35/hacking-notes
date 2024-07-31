@@ -24,6 +24,9 @@
 ```powershell
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 ```
+
+![Get-WmiObject](images/get-wmiobject.png)
+
 ## Sistema de archivos
 🔹Hay 5 tipos de sistema de archivos:<br />
 1. **FAT12**: No se usa más en sistema operativos Windows modernos.
@@ -48,11 +51,15 @@ Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 dir c:\ /a
 ```
 
+![Comando dir](images/dir.png)
+
 [Comando tree](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree)
 
 ```cmd
-tree "c:\" /f | more
+tree
 ```
+
+![Comando tree](images/tree.png)
 
 ## Permisos
 🔹El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.
@@ -72,7 +79,18 @@ Algunos de los permisos claves son:<br />
 🔹Si los permisos no necesitan ser configurados explícitamente, un administrador puede deshabilitar la herencia de permisos para archivos y carpetas necesarios y después configurar permisos directamente para cada uno.<br />
 ## Recursos compartidos
 ## Acceso remoto
+Algunas de las tecnologías más comunes de acceso remoto son:
+- Virtual Private Networks (VPN)
+- Secure Shell (SSH)
+- File Transfer Protocol (FTP)
+- Virtual Network Computing (VNC)
+- Windows Remote Management (o PowerShell Remoting) (WinRM)
+- Remote Desktop Protocol (RDP)
 ### Remote Desktop Protocol (RDP)
+🔹 **RDP** usa una arquitectura client/servidor donde la aplicación del lado del cliente se usa para especificar la dirección IP objetivo o el hostname a través de una red en donde RDP está habilitado.<br />
+🔹La computadora objetivo donde el acceso remoto por RDP está habilitado se considera el servidor.<br />
+🔹El puerto por defecto donde RDP escucha es el **3389**.
+🔹La dirección IP se usa como un identificador lógico para una computadora en una red y un puerto lógico es un identificador asignado a una aplicación.
 ### xfreerdp
 ```bash
 xfreerdp /v:<direccion-ip> /u:<usuario> /p:<contraseña>
