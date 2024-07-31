@@ -63,8 +63,8 @@ tree
 ![Comando tree](images/tree.png)
 
 ## Permisos
-🔹El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.
-Algunos de los permisos claves son:<br />
+🔹El sistema de archivos NTFS tiene muchos permisos básicos y avanzados.<br />
+🔹Algunos de los permisos claves son:<br />
 
 | Tipo de permiso      | Descripción                                                                                                                         |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
