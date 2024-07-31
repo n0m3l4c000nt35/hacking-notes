@@ -1,6 +1,6 @@
 # Index ✴️ Windows
 
-- [Estructura del sistema operativo](windows.md#estructura-del-sistema-operativo)
-- [Sistema de archivos](windows.md#sistema-de-archivos)
-- [Permisos](windows.md#permisos)
-- [Recursos compartidos](windows.md#recursos-compartidos)
+- <a href="windows.md#estructura-del-sistema-operativo">Estructura del sistema operativo</a>
+- <a href="windows.md#sistema-de-archivos">Sistema de archivos</a>
+- <a href="windows.md#permisos">Permisos</a>
+- <a href="windows.md#recursos-compartidos">Recursos compartidos</a>
