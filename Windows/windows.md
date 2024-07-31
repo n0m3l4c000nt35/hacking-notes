@@ -101,7 +101,8 @@ icacls C:\
 - **IO**: inherit only
 - **NP**: do not propagate inherit
 - **I**: permission inherited from parent container
-🔹Los permisos de acceso básicos son:
+
+🔹Los permisos de acceso básicos son:<br />
 - **F**: full access
 - **D**: delete access
 - **N**: no access
