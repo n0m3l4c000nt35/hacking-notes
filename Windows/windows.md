@@ -35,7 +35,7 @@ Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 4. NTFS
 5. exFAT
 
-**FAT**: File Allocation Table
+**FAT**: File Allocation Table<br />
 🔹Se usa ampliamente en muchos tipos de dispositivos de almacenamiento:<br />
 - Memorias USB
 - Tarjetas SD
@@ -94,7 +94,7 @@ icacls C:\
 ![icacls](images/icacls.png)
 
 🔹El nivel de acceso a los recursos aparece después de cada usuario en el resultado mostrado en pantalla.<br />
-🔹Las posibles configuraciones de herencia son:
+🔹Las posibles configuraciones de herencia son:<br />
 - **CI**: container inherit
 - **OI**: object inherit
 - **IO**: inherit only
