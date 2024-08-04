@@ -20,15 +20,6 @@
 ### Stored XSS
 🔹 Afecta a cualquier usuario que visita la página infectada ya que el payload inyectado se guarda en la base de datos en el back-end.<br />
 🔹 No es fácil de eliminar ya que necesita ser eliminado de la base de datos.<br />
-
-```html
-<script>alert(window.origin)</script>
-```
-
-```html
-<img src="" onerror=alert(window.origin)>
-```
-
 🔹 Se debería ejecutar el código una vez ingresado el payload o cuando se actualice la página.<br />
 🔹 Se confirma mirando el código fuente, en el que debería verse el payload.<br />
 
@@ -75,7 +66,6 @@
 Payloads:
 - [Cross Site Scripting](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
 - [Cross Site Scripting ( XSS ) Vulnerability Payload List](https://github.com/payloadbox/xss-payload-list)
-
 ### Revisión de código
 ## Defacing
 ## Phishing
@@ -83,3 +73,12 @@ Payloads:
 ## Prevención
 ### Front-end
 ### Back-end
+
+## Payloads XSS
+```html
+<script>alert(window.origin)</script>
+```
+
+```html
+<img src="" onerror=alert(window.origin)>
+```
