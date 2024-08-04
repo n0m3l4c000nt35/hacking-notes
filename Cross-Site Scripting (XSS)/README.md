@@ -25,7 +25,7 @@
 <script>alert(window.origin)</script>
 ```
 
-🔹 Una vez ingresado el payload o cuando se actualice la página se debería ejecutar el código.<br />
+🔹 Se debería ejecutar el código una vez ingresado el payload o cuando se actualice la página.<br />
 🔹 Se confirma mirando el código fuente, en el que debería verse el payload.<br />
 
 > [!NOTE]
