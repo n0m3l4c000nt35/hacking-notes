@@ -37,6 +37,12 @@
 🔹Para ver si el payload es persistente y se guarda en la base de datos se recarga la página para ver si el código se vuelve a ejecutar.<br />
 🔹Cualquier usuario que recargue la página va a ver la ejecución del código inyectado.<br />
 ### Reflexted XSS
+🔹Es procesado por el servidor back-end.<br />
+🔹Son temporales y solo existen hasta que se refresca la página.<br />
+🔹Solo afectan al usuario objetivo y no afecta a otros usuarios que visitan la página.<br />
+🔹Ocurre cuando el input es procesado por el servidor y devuelto al cliente sin filtrarlo ni sanitizarlo.<br />
+🔹En el código fuente se debería ver el payload inyectado.<br />
+🔹Para atacar a un usuario, se le puede enviar la URL que contiene el payload. Una vez que la víctima visitar la URL, el payload se ejecuta.<br />
 ### DOM XSS
 ## Descubriendo XSS
 ### Descubrimiento automatizado
