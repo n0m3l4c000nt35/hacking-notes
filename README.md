@@ -1,3 +1,3 @@
 # Hacking Notes 📝
 
-[Windows](/Windows/README.md)
+[Vulnerabilidades](/Vulnerabilidades/Cross-Site-Scripting-XSS/README.md)
