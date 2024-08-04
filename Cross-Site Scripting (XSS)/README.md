@@ -1,4 +1,4 @@
-## Qué es XSS?
+## Qué es una vulnerabilidad XSS?
 🔹 Vulnerabilidades XSS aprovechan fallas en la sanitización del input del usuario para escribir código JavaScript en la página y ejecutarlo en el lado del cliente, generando oportunidad para realizar distintos ataques a través del código JavaScript del navegador.<br />
 🔹 Una aplicación web típica funciona recibiendo el código HTML del servidor back-end y representándolo en el navegador del lado del cliente.<br />
 🔹 Cuando una aplicación web vulnerable no desinfecta adecuadamente el input del usuario, un usuario malintencionado puede inyectar código JavaScript adicional en un campo de entrada (por ejemplo, comentario/respuesta), de modo que una vez que otro usuario vea la misma página, ejecute el código JavaScript malicioso sin saberlo.<br />
@@ -11,7 +11,7 @@
 🔹 Los ataques están limitados al motor JS del navegador (V8 en Chrome) ya que se ejecutan dentro del navegador.<br />
 🔹 No pueden ejecutar código a nivel de sistema.<br />
 🔹 En navegadores modernos están limitados al mismo dominio del sitio web vulnerable.<br />
-## Tipos de XSS
+## Tipos de vulnerabilidades XSS
 | Tipo                           | Descripción                                                                                                                                                                                                     |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Stored (Persistent) XSS        | El tipo de XSS más crítido.<br>Ocurre cuando el input del usuario se guarda en la base de datos del back-end y se muestra al recuperar ese dato.                                                                |
@@ -66,7 +66,7 @@
 - `add()`
 - `after()`
 - `append()`
-## Descubriendo XSS
+## Descubriendo vulnerabilidades XSS
 ### Descubrimiento automatizado
 - [XSStrike](https://github.com/s0md3v/XSStrike)
 - [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
