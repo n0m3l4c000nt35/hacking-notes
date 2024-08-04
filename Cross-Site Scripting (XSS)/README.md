@@ -59,7 +59,9 @@
 - `document.write()`
 - `DOM.innerHTML()`
 - `DOM.outerHTML()`<br />
+
 🔹 Funciones `JQuery` que escriben en objetos del DOM:
+
 - `add()`
 - `after()`
 - `append()`
