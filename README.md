@@ -1,3 +1,3 @@
 # Hacking Notes 📝
 
-[Windows](/Windows/windows.md)
+[Windows](/Windows/README.md)
