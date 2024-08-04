@@ -55,6 +55,7 @@
 🔹 El **source** es el objeto JavaScript que toma el input del usuario.<br />
 🔹 El **sink** es la función que escribe el input del usuario en un objeto del DOM en la página.<br />
 🔹 Si el sink no sanitiza el input del usuario podría ser vulnerable a un ataque XSS.<br />
+
 🔹 Funciones JavaScript que escriben en objetos del DOM:
 - `document.write()`
 - `DOM.innerHTML()`
