@@ -18,31 +18,31 @@
 | Reflected (Non-persistent) XSS | Ocurre cuando el input del usuario se muestra en la página después de ser procesado por el servidor back-end pero sin ser guardado (resultados de búsquedas o mensajes de error).                               |
 | DOM-based XSS (Non-persistent) | Ocurre cuando el input del usuario se muestra directamente en el navegador y es completamente procesado en el lado del cliente sin alcanzar el servidor back-end (a través de parámetros HTTP o etiquetas <a>). |
 ### Stored XSS
-🔹Afecta a cualquier usuario que visita la página infectada ya que el payload inyectado se guarda en la base de datos en el back-end.<br />
-🔹No es fácil de eliminar ya que necesita ser eliminado de la base de datos.<br />
+🔹 Afecta a cualquier usuario que visita la página infectada ya que el payload inyectado se guarda en la base de datos en el back-end.<br />
+🔹 No es fácil de eliminar ya que necesita ser eliminado de la base de datos.<br />
 
 ```html
 <script>alert(window.origin)</script>
 ```
 
-🔹Una vez ingresado el payload o cuando se actualice la página se debería ejecutar el código.<br />
-🔹Se confirma mirando el código fuente en el que debería verse el payload.<br />
+🔹 Una vez ingresado el payload o cuando se actualice la página se debería ejecutar el código.<br />
+🔹 Se confirma mirando el código fuente en el que debería verse el payload.<br />
 
 > [!NOTE]
 > Muchas aplicaciones web modernas usan **cross-domain IFrames** (el contenido de los inputs se cargan desde un dominio diferente) para manejar el input del usuario, entonces aunque el input sea vulnerable a XSS no va a ser vulnerable en la aplicación principal
 
-🔹Obtener el origen desde donde se está ejecutando el código es una manera de ver cuál es la entrada vulnerable.<br />
-🔹Algunos navegadores modernos bloquean la función JavaScript `alert`.<br />
-🔹`<plaintext>` muestra el código que viene después de el como texto plano.<br />
-🔹Para ver si el payload es persistente y se guarda en la base de datos se recarga la página para ver si el código se vuelve a ejecutar.<br />
-🔹Cualquier usuario que recargue la página va a ver la ejecución del código inyectado.<br />
+🔹 Obtener el origen desde donde se está ejecutando el código es una manera de ver cuál es la entrada vulnerable.<br />
+🔹 Algunos navegadores modernos bloquean la función JavaScript `alert`.<br />
+🔹 `<plaintext>` muestra el código que viene después de el como texto plano.<br />
+🔹 Para ver si el payload es persistente y se guarda en la base de datos se recarga la página para ver si el código se vuelve a ejecutar.<br />
+🔹 Cualquier usuario que recargue la página va a ver la ejecución del código inyectado.<br />
 ### Reflexted XSS
-🔹Es procesado por el servidor back-end.<br />
-🔹Son temporales y solo existen hasta que se refresca la página.<br />
-🔹Solo afectan al usuario objetivo y no afecta a otros usuarios que visitan la página.<br />
-🔹Ocurre cuando el input es procesado por el servidor y devuelto al cliente sin filtrarlo ni sanitizarlo.<br />
-🔹En el código fuente se debería ver el payload inyectado.<br />
-🔹Para atacar a un usuario, se le puede enviar la URL que contiene el payload. Una vez que la víctima visitar la URL, el payload se ejecuta.<br />
+🔹 Es procesado por el servidor back-end.<br />
+🔹 Son temporales y solo existen hasta que se refresca la página.<br />
+🔹 Solo afectan al usuario objetivo y no afecta a otros usuarios que visitan la página.<br />
+🔹 Ocurre cuando el input es procesado por el servidor y devuelto al cliente sin filtrarlo ni sanitizarlo.<br />
+🔹 En el código fuente se debería ver el payload inyectado.<br />
+🔹 Para atacar a un usuario, se le puede enviar la URL que contiene el payload. Una vez que la víctima visitar la URL, el payload se ejecuta.<br />
 ### DOM XSS
 ## Descubriendo XSS
 ### Descubrimiento automatizado
