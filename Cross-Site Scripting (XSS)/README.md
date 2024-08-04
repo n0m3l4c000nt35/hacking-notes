@@ -5,8 +5,8 @@
 🔹 Las vulnerabilidad XSS se ejecutan únicamente en el lado del cliente.<br />
 🔹 No afectan directamente al servidor back-end.<br />
 ### Ejemplos
-🔹 El usuario objetivo envíe sin saberlo su cookie de sesión al servidor web del atacante.<br />
-🔹 El navegador del objetivo ejecute llamadas a la API que conduzcan a una acción maliciosa, como cambiar la contraseña del usuario por una contraseña elegida por el atacante.<br />
+🔹 El usuario objetivo envía su cookie de sesión al servidor web del atacante sin saber.<br />
+🔹 El navegador del objetivo ejecuta llamadas a la API que conducen a una acción maliciosa, como cambiar la contraseña del usuario por una contraseña elegida por el atacante.<br />
 ## Ataques XSS
 🔹 Los ataques están limitados al motor JS del navegador (V8 en Chrome) ya que se ejecutan dentro del navegador.<br />
 🔹 No pueden ejecutar código a nivel de sistema.<br />
@@ -26,10 +26,10 @@
 ```
 
 🔹 Una vez ingresado el payload o cuando se actualice la página se debería ejecutar el código.<br />
-🔹 Se confirma mirando el código fuente en el que debería verse el payload.<br />
+🔹 Se confirma mirando el código fuente, en el que debería verse el payload.<br />
 
 > [!NOTE]
-> Muchas aplicaciones web modernas usan **cross-domain IFrames** (el contenido de los inputs se cargan desde un dominio diferente) para manejar el input del usuario, entonces aunque el input sea vulnerable a XSS no va a ser vulnerable en la aplicación principal
+> Muchas aplicaciones web modernas usan **cross-domain IFrames** (el contenido de los inputs se cargan desde un dominio diferente) para manejar el input del usuario, entonces aunque el input sea vulnerable a XSS no va a ser vulnerable en la aplicación principal.
 
 🔹 Obtener el origen desde donde se está ejecutando el código es una manera de ver cuál es la entrada vulnerable.<br />
 🔹 Algunos navegadores modernos bloquean la función JavaScript `alert`.<br />
@@ -37,13 +37,28 @@
 🔹 Para ver si el payload es persistente y se guarda en la base de datos se recarga la página para ver si el código se vuelve a ejecutar.<br />
 🔹 Cualquier usuario que recargue la página va a ver la ejecución del código inyectado.<br />
 ### Reflexted XSS
-🔹 Es procesado por el servidor back-end.<br />
+🔹 Es procesado por el servidor back-end a través de solicitudes HTTP.<br />
 🔹 Son temporales y solo existen hasta que se refresca la página.<br />
 🔹 Solo afectan al usuario objetivo y no afecta a otros usuarios que visitan la página.<br />
 🔹 Ocurre cuando el input es procesado por el servidor y devuelto al cliente sin filtrarlo ni sanitizarlo.<br />
 🔹 En el código fuente se debería ver el payload inyectado.<br />
 🔹 Para atacar a un usuario, se le puede enviar la URL que contiene el payload. Una vez que la víctima visitar la URL, el payload se ejecuta.<br />
 ### DOM XSS
+🔹 Se procesa completamente del lado del cliente a través de JavaScript.<br />
+🔹 Ocurre cuando se usa JavaScript para modificar la página a través del DOM (Document Object Model).<br />
+🔹 No se ve el payload inyectado en el código fuente.<br />
+#### Source & Sink
+🔹 El **source** es el objeto JavaScript que toma el input del usuario.<br />
+🔹 El **sink** es la función que escribe el input del usuario en un objeto del DOM en la página.<br />
+🔹 Si el sink no sanitiza el input del usuario podría ser vulnerable a un ataque XSS.<br />
+🔹 Funciones JavaScript que escriben en objetos del DOM:
+- `document.write()`
+- `DOM.innerHTML()`
+- `DOM.outerHTML()`
+🔹 Funciones `JQuery` que escriben en objetos del DOM:
+- `add()`
+- `after()`
+- `append()`
 ## Descubriendo XSS
 ### Descubrimiento automatizado
 - [XSStrike](https://github.com/s0md3v/XSStrike)
