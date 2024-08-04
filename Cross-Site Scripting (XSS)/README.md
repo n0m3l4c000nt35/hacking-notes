@@ -32,6 +32,10 @@
 > Muchas aplicaciones web modernas usan **cross-domain IFrames** (el contenido de los inputs se cargan desde un dominio diferente) para manejar el input del usuario, entonces aunque el input sea vulnerable a XSS no va a ser vulnerable en la aplicación principal
 
 🔹Obtener el origen desde donde se está ejecutando el código es una manera de ver cuál es la entrada vulnerable.<br />
+🔹Algunos navegadores modernos bloquean la función JavaScript `alert`.<br />
+🔹`<plaintext>` muestra el código que viene después de el como texto plano.<br />
+🔹Para ver si el payload es persistente y se guarda en la base de datos se recarga la página para ver si el código se vuelve a ejecutar.<br />
+🔹Cualquier usuario que recargue la página va a ver la ejecución del código inyectado.<br />
 ### Reflexted XSS
 ### DOM XSS
 ## Descubriendo XSS
