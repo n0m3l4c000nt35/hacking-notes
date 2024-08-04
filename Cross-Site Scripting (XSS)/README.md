@@ -59,11 +59,19 @@
 - `append()`
 ## Descubriendo vulnerabilidades XSS
 ### Descubrimiento automatizado
+- [Nessus](https://www.tenable.com/products/nessus)
+- [Burp PRO](https://portswigger.net/burp/pro)
+- [ZAP](https://www.zaproxy.org/)
 - [XSStrike](https://github.com/s0md3v/XSStrike)
 - [BruteXSS](https://github.com/rajeshmajumdar/BruteXSS)
 - [XSSer](https://github.com/epsylon/xsser)
 ### Descubrimiento manual
-Payloads:
+🔹 La dificultad para encontrar vulnerabilidades XSS depende del nivel de seguridad de la aplicación web.<br />
+🔹 Las vulnerabilidades XSS básicas usualmente se encuentran probando varios payloads XSS, pero identificar vulnerabilidades XSS avanzadas se requieren habilidades avanzadas de análisis de código.<br />
+🔹 Se copia cada payload en el input y viendo si se ejecuta el código inyectado.<br />
+🔹 Se puede inyectar en cualquier input de una página, no solo en inputs HTML, también dentro de encabezados HTTP como las cookies o el User-Agent cuando sus valores se muestran en la página.<br />
+#### Payloads:
+🔹 El método más básico para encontrar vulnerabilidades XSS es probando manualmente varios payloads XSS en los inputs de una aplicación web.<br />
 - [Cross Site Scripting](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
 - [Cross Site Scripting ( XSS ) Vulnerability Payload List](https://github.com/payloadbox/xss-payload-list)
 ### Revisión de código
