@@ -1,16 +1,16 @@
 ## Qué es XSS?
-🔹Vulnerabilidades XSS aprovechan fallas en la sanitización del input del usuario para escribir código JavaScript en la página y ejecutarlo en el lado del cliente, generando oportunidad para realizar distintos ataques a través del código JavaScript del navegador.<br />
-🔹Una aplicación web típica funciona recibiendo el código HTML del servidor back-end y representándolo en el navegador del lado del cliente.<br />
-🔹Cuando una aplicación web vulnerable no desinfecta adecuadamente el input del usuario, un usuario malintencionado puede inyectar código JavaScript adicional en un campo de entrada (por ejemplo, comentario/respuesta), de modo que una vez que otro usuario vea la misma página, ejecute el código JavaScript malicioso sin saberlo.<br />
-🔹Las vulnerabilidad XSS se ejecutan únicamente en el lado del cliente.<br />
-🔹No afectan directamente al servidor back-end.<br />
+🔹 Vulnerabilidades XSS aprovechan fallas en la sanitización del input del usuario para escribir código JavaScript en la página y ejecutarlo en el lado del cliente, generando oportunidad para realizar distintos ataques a través del código JavaScript del navegador.<br />
+🔹 Una aplicación web típica funciona recibiendo el código HTML del servidor back-end y representándolo en el navegador del lado del cliente.<br />
+🔹 Cuando una aplicación web vulnerable no desinfecta adecuadamente el input del usuario, un usuario malintencionado puede inyectar código JavaScript adicional en un campo de entrada (por ejemplo, comentario/respuesta), de modo que una vez que otro usuario vea la misma página, ejecute el código JavaScript malicioso sin saberlo.<br />
+🔹 Las vulnerabilidad XSS se ejecutan únicamente en el lado del cliente.<br />
+🔹 No afectan directamente al servidor back-end.<br />
 ### Ejemplos
-🔹El usuario objetivo envíe sin saberlo su cookie de sesión al servidor web del atacante.<br />
-🔹El navegador del objetivo ejecute llamadas a la API que conduzcan a una acción maliciosa, como cambiar la contraseña del usuario por una contraseña elegida por el atacante.<br />
+🔹 El usuario objetivo envíe sin saberlo su cookie de sesión al servidor web del atacante.<br />
+🔹 El navegador del objetivo ejecute llamadas a la API que conduzcan a una acción maliciosa, como cambiar la contraseña del usuario por una contraseña elegida por el atacante.<br />
 ## Ataques XSS
-🔹Los ataques están limitados al motor JS del navegador (V8 en Chrome) ya que se ejecutan dentro del navegador.<br />
-🔹No pueden ejecutar código a nivel de sistema.<br />
-🔹En navegadores modernos están limitados al mismo dominio del sitio web vulnerable.<br />
+🔹 Los ataques están limitados al motor JS del navegador (V8 en Chrome) ya que se ejecutan dentro del navegador.<br />
+🔹 No pueden ejecutar código a nivel de sistema.<br />
+🔹 En navegadores modernos están limitados al mismo dominio del sitio web vulnerable.<br />
 ## Tipos de XSS
 | Tipo                           | Descripción                                                                                                                                                                                                     |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
