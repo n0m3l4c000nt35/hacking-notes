@@ -1,6 +1,6 @@
 ## Qué son los web proxies
-🔹Para capturar las solicitudes y tráfico que pasa entre las aplicaciones y servidores backend y manipularlas para testearlas necesitamos **web proxies**.<br />
-🔹Web proxies son herramientas especializadas que se configuran entre un navegador o aplicación móvil y un servidor backend para capturar y ver las solicitudes que se transmiten entre ambos, actuando como una herramienta man-in-the-middle.<br />
+🔹Capturan solicitudes y tráfico que pasa entre las aplicaciones y servidores back-end para manipularlas y testearlas.<br />
+🔹Web proxies son herramientas especializadas que se configuran entre un navegador o aplicación móvil y un servidor back-end para capturar y ver las solicitudes que se transmiten entre ambos, actuando como una herramienta man-in-the-middle.<br />
 🔹Mientas que otras aplicaciones de Network Sniffing como Wireshark operan analizando el tráfico local para que pasa a través de una red, los web proxies principalmente funcionan con puertos web tales como el HTTP/80 y HTTPS/443.<br />
 🔹Una vez configurado el web proxie, podemos ver todas las solicitudes HTTP hechas por una aplicación y todas las respuestas enviadas por el servidor backend.<br />
 🔹Además, podemos interceptar una solicitud específica para modificar su información y ver como el servidor la maneja.<br />
