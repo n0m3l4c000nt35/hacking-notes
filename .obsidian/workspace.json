@@ -1,0 +1,179 @@
+{
+  "main": {
+    "id": "85792900fcb8a17e",
+    "type": "split",
+    "children": [
+      {
+        "id": "9c53f24f60b409d4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e58fd5be9ceefa03",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Vulnerabilidades/SQL-Injection/README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b59acc2570d75f13",
+    "type": "split",
+    "children": [
+      {
+        "id": "2e97b55cca242c57",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d77b25fe4406598",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4cc8c9a0eb5d824c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2a77ddf814fd9279",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f2424860280fffa8",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe5aae906af3d6f8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2bee84dd1357cd46",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Vulnerabilidades/SQL-Injection/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "adacf0403a570b23",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Vulnerabilidades/SQL-Injection/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "28c40d90a83ee869",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "de8307387eef92fa",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Vulnerabilidades/SQL-Injection/README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "e58fd5be9ceefa03",
+  "lastOpenFiles": [
+    "Vulnerabilidades/README.md",
+    "Vulnerabilidades/SQL-Injection/README.md",
+    "README.md",
+    "Vulnerabilidades/Cross-Site-Scripting-XSS/README.md",
+    "SQL.md",
+    "Vulnerabilidades/SQL-Injection",
+    "Google Dorking/README.md",
+    "Windows/windows.md",
+    "Windows/README.md",
+    "Vulnerabilidades/Cross-Site-Scripting-XSS.md",
+    "vulnerabilidades/Cross-Site.md",
+    "vulnerabilidades/Cross-Site-(XSS).md",
+    "Vulnerabilidades",
+    "Web proxies/README.md",
+    "Vulnerabilidades/Cross-Site-Scripting-XSS",
+    "Google Dorking",
+    "Web proxies/images/certificate.png",
+    "Web proxies/images/save-certificate.png",
+    "Web proxies/images/import-certificate.png",
+    "Web proxies/images/view-certificates.png",
+    "Web proxies/images/select-certificate.png",
+    "Web proxies/images/select-burp.png",
+    "Web proxies/images/setup-proxy-3.png",
+    "Web proxies/images/setup-proxy-2.png",
+    "Web proxies/images/setup-proxy-1.png",
+    "Web proxies/images",
+    "Web proxies"
+  ]
+}
