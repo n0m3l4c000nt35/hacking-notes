@@ -86,11 +86,51 @@
 > Verificar el código de manera local para ver como se ve para asegurarse que se vea como se espera antes de enviar el payload final.
 
 ## Phishing
+🔹 Los ataques de phishing generalmente utilizan información de apariencia legítima para engañar a las víctimas para que envíen su información confidencial al atacante.<br />
 ## Session Hijacking
+🔹 Cuando un atacante ejecuta código JavaScript malicioso en el navegador de la víctima obteniendo su cookie de sesióń enviandola a su servidor para loguear como si fuera la víctima sin la necesidad de conocer sus credenciales.<br />
+## Detección de Blind XSS
+🔹 Ocurre cuando la vulnerabilidad se ejecuta en una página a la que no se tiene acceso.<br />
+🔹 Suelen ocurrir en formularios a los que ciertos usuarios tienen acceso.<br />
 ## Prevención
+🔹 Sanitizar y validadr apropiadamente los inputs tanto en el back-end como en el front-end.<br />
 ### Front-end
-### Back-end
+🔹 Escapar caracteres especiales.<br />
 
+- [DOMPurify](https://github.com/cure53/DOMPurify)
+
+🔹 Nunca usar el input del usuario directamente dentro del código HTML.<br />
+🔹 Evitar el uso de funciones JavaScript que permitan modificar el texto sin formato de los inputs HTML:<br />
+
+- `DOM.innerHTML`
+- `DOM.outerHTML`
+- `document.write()`
+- `document.writeln()`
+- `document.domain`
+
+🔹 Y las siguientes funciones JQuery:<br />
+
+- `html()`
+- `parseHTML()`
+- `add()`
+- `append()`
+- `prepend()`
+- `after()`
+- `insertAfter()`
+- `before()`
+- `insertBefore()`
+- `replaceAll()`
+- `replaceWith()`
+### Back-end
+🔹 Usar Regex o funciones de librerías para asegurarse que el input es lo que se espera.<br />
+🔹 Codificar cualquier caracter especial del input del usuario.<br />
+### Configuración del servidor
+🔹 Usar HTTPS en todo el dominio.<br />
+🔹 Usar encabezados de prevención XSS.<br />
+🔹 Utilizar el Content-Type apropiado para la página cómo `X-Content-Type-Options=nosniff`.<br />
+🔹 Utilizar las flags `HttpOnly` y `Secure` en las cookies para evitar que JavaScript lea cookies y solo las envíe a través de HTTPS.<br />
+🔹 Tener un buen **Web Application Firewall** (WAF) puede reducir significativamente las posibilidades de explotación de XSS, ya que detectará automáticamente cualquier tipo de inyección que pase por las solicitudes HTTP y rechazará automáticamente dichas solicitudes.<br />
+🔹 Algunos frameworks proporcionan protección XSS integrada.<br />
 ## Payloads XSS
 ```html
 <script>alert(window.origin)</script>
