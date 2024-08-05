@@ -1,3 +1,3 @@
 # Hacking Notes 📝
 
-[Vulnerabilidades](/Vulnerabilidades/Cross-Site-Scripting-XSS/README.md)
+[Vulnerabilidades](/Vulnerabilidades/README.md)
