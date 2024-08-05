@@ -78,6 +78,13 @@
 🔹 El análisis de código es el método más confiable para encontrar vulnerabilidades XSS.<br />
 🔹 Es probable que no encontremos vulnerabilidades XSS a través de listas de payloads ya que los desarrolladores de las aplicaciones webs corrigen las vulnerabilidades encontradas luego de que se realicen evaluaciones de vulnerabilidades.<br />
 ## Defacing
+🔹 Modificar la apariencia de una web para todos los que la visitan.<br />
+🔹 Minificar el payload final.<br />
+🔹 Tener en cuenta el orden en el que se ejecuta el código.<br />
+
+> [!TIP]
+> Verificar el código de manera local para ver como se ve para asegurarse que se vea como se espera antes de enviar el payload final.
+
 ## Phishing
 ## Session Hijacking
 ## Prevención
