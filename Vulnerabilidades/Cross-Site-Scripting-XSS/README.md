@@ -74,7 +74,9 @@
 🔹 El método más básico para encontrar vulnerabilidades XSS es probando manualmente varios payloads XSS en los inputs de una aplicación web.<br />
 - [Cross Site Scripting](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
 - [Cross Site Scripting ( XSS ) Vulnerability Payload List](https://github.com/payloadbox/xss-payload-list)
-### Revisión de código
+### Análisis de código
+🔹 El análisis de código es el método más confiable para encontrar vulnerabilidades XSS.<br />
+🔹 Es probable que no encontremos vulnerabilidades XSS a través de listas de payloads ya que los desarrolladores de las aplicaciones webs corrigen las vulnerabilidades encontradas luego de que se realicen evaluaciones de vulnerabilidades.<br />
 ## Defacing
 ## Phishing
 ## Session Hijacking
