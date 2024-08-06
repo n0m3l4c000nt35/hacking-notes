@@ -85,7 +85,7 @@ A[Usuario] <--> B[Cliente] <--> C[Servidor] <--> D[DBMS]
 ```
 
 - Cuando la información suministrada es usada para construir una consulta a la base de datos, se puede alterar la consulta para usarla con intenciones distintas de las que fue creada originalmente, proporcionando acceso para consultar la base de datos mediante un ataque conocido como inyección SQL (SQLi).
-### Inyección SQL
+### Inyeccion SQL
 - La inyección SQL ocurre cuando se ingresa un valor que modifica la consulta SQL final enviada a la base de datos de la aplicación web, permitiendo llevar a cabo consultas SQL no intencionadas.
 - Inyectar código SQL y entonces alterar la lógica de la aplicación web modificando la consulta original o ejecutar una consulta completamente nueva.
 - Inyectar código por fuera de los límites de los valores ingresados por el usuario, así no se ejecuta como un simple usuario.
