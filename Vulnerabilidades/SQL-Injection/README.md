@@ -1,5 +1,7 @@
+# Inyección SQL
+
 1. [Introducción](#introducción)
-	1. [SQL Injection (SQLi)](#sql-injection-(sqli))
+	1. [Inyección SQL](#inyección-sql)
 	2. [Casos de uso](#casos-de-uso)
 2. [Introducción a bases de datos](#introducción-a-bases-de-datos)
 	1. [Database Management Systems](#database-management-systems)
@@ -70,8 +72,6 @@
 	4. [Web Application Firewall (WAF)](#web-application-firewall-(waf))
 	5. [Consultar parametrizadas](#consultas-parametrizadas)
 
----
-
 ## Introducción
 - La mayoría de aplicaciones web modernas usan una estructura de base de datos en el back-end.
 - Tales bases de datos se usan para guardar y obtener datos relacionados a la aplicación web, ya sea contenido de la aplicación web como información y contenido del usuario.
@@ -84,10 +84,13 @@ flowchart LR
 A[Usuario] <--> B[Cliente] <--> C[Servidor] <--> D[DBMS]
 ```
 
-- Cuando la información suministrada por un usuario es usada para construir una consulta a la base de datos, un usuario malicioso puede alterar la consulta para usarla con intenciones distintas de las que fue creada originalmente, proporcionando al usuario acceso para consultar la base de datos mediante un ataque conocido como inyección SQL (SQLi).
-### SQL Injection (SQLi)
+- Cuando la información suministrada es usada para construir una consulta a la base de datos, se puede alterar la consulta para usarla con intenciones distintas de las que fue creada originalmente, proporcionando acceso para consultar la base de datos mediante un ataque conocido como inyección SQL (SQLi).
+### Inyección SQL
 - La inyección SQL ocurre cuando se ingresa un valor que modifica la consulta SQL final enviada a la base de datos de la aplicación web, permitiendo llevar a cabo consultas SQL no intencionadas.
 - Inyectar código SQL y entonces alterar la lógica de la aplicación web modificando la consulta original o ejecutar una consulta completamente nueva.
 - Inyectar código por fuera de los límites de los valores ingresados por el usuario, así no se ejecuta como un simple usuario.
 - Inyectar un comilla simple `'` o doble `"` para escapar los limites de los valores ingresados por el usuario e inyectar valores directamente en la consulta SQL.
+- Una vez se puede inyectar, hay que buscar maneras de ejecutar diferentes consultas SQL.
+- Se puede hacer usando código SQL para hacer funcionar una consulta que ejecute ambas consultas, la intencionada y la no intencionada.
+- Para obtener la respuesta a la consulta, hay que interpretar la respuesta en el front-end.
 ### Casos de uso
