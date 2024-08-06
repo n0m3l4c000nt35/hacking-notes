@@ -3,6 +3,7 @@
 1. [Introducción](#introducción)
 	1. [Inyección SQL](#inyeccion-sql)
 	2. [Casos de uso](#casos-de-uso)
+	3. [Prevención](#prevencion)
 2. [Introducción a bases de datos](#introducción-a-bases-de-datos)
 	1. [Database Management Systems](#database-management-systems)
 	2. [Arquitectura](#arquitectura)
@@ -76,7 +77,7 @@
 - La mayoría de aplicaciones web modernas usan una estructura de base de datos en el back-end.
 - Tales bases de datos se usan para guardar y obtener datos relacionados a la aplicación web, ya sea contenido de la aplicación web como información y contenido del usuario.
 - Para hacer que las aplicaciones web sean dinámicas, las aplicaciones web tiene que interactuar con las bases de datos en tiempo real.
-- Una vez que el usuario envía una solicitud HTTP(S), el back-end de las aplicaciones web envía las consultas a la base de datos para generar la respuesta.
+- Una vez enviada una solicitud HTTP(S), el back-end de las aplicaciones web envía consultas a la base de datos para generar la respuesta.
 - Las consultas pueden incluir información desde las consultas HTTP(S) u otra información relevante.
 
 ```mermaid
@@ -84,13 +85,23 @@ flowchart LR
 A[Usuario] <--> B[Cliente] <--> C[Servidor] <--> D[DBMS]
 ```
 
-- Cuando la información suministrada es usada para construir una consulta a la base de datos, se puede alterar la consulta para usarla con intenciones distintas de las que fue creada originalmente, proporcionando acceso para consultar la base de datos mediante un ataque conocido como inyección SQL (SQLi).
+- Cuando la información suministrada es usada para construir una consulta a la base de datos, se la puede alterar para usarla con intenciones distintas de las que fue creada originalmente, proporcionando acceso para consultar la base de datos mediante un ataque conocido como inyección SQL (SQLi).
 ### Inyeccion SQL
 - La inyección SQL ocurre cuando se ingresa un valor que modifica la consulta SQL final enviada a la base de datos de la aplicación web, permitiendo llevar a cabo consultas SQL no intencionadas.
 - Inyectar código SQL y entonces alterar la lógica de la aplicación web modificando la consulta original o ejecutar una consulta completamente nueva.
-- Inyectar código por fuera de los límites de los valores ingresados por el usuario, así no se ejecuta como un simple usuario.
-- Inyectar un comilla simple `'` o doble `"` para escapar los limites de los valores ingresados por el usuario e inyectar valores directamente en la consulta SQL.
-- Una vez se puede inyectar, hay que buscar maneras de ejecutar diferentes consultas SQL.
+- Inyectar código por fuera de los límites de los valores ingresados, así no se ejecuta como normalmente se hace.
+- Inyectar un comilla simple `'` o doble `"` para escapar los limites de los valores ingresados e inyectar valores directamente en la consulta SQL.
+- Una vez que se sabe que se puede inyectar, hay que buscar maneras de ejecutar diferentes consultas SQL.
 - Se puede hacer usando código SQL para hacer funcionar una consulta que ejecute ambas consultas, la intencionada y la no intencionada.
 - Para obtener la respuesta a la consulta, hay que interpretar la respuesta en el front-end.
 ### Casos de uso
+- Una inyección SQL puede tener un impacto tremendo, especialmente si los privilegios en el servidor back-end y la base de datos son muy laxos.
+- Primero se recupera información sensible/secreta que no debería ser visible, como usuarios y contraseñas o información de tarjetas de crédito lo que puede usarse para otros propósitos maliciosos.
+- Las inyecciones SQL causan filtración de datos y contraseñas contra sitios web, los que se vuelven a usar para robar cuentas de usuarios, acceder a otros servicios, o llevar a cabo otras acciones maliciosas.
+- Alterar la lógica intecionada de las aplicaciones web.
+- Eludir el inicio de sesión sin ingresar datos válidos.
+- Acceder a características que están bloqueadas para usuarios específicos, cómo paneles de administración.
+- Leer y escribir archivos directamente en el servidor back-end, ubicando back doors en el servidor back-end y ganar control directorio sobre el, y eventualmente tomar control total de un sitio web.
+### Prevención
+- Las inyecciones SQL son causadas por aplicaciones web mal codeadas o servidores back-end y bases de datos mal protegidas.
+## Introduccion a bases de datos
