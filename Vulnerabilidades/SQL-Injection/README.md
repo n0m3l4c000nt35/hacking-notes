@@ -1,7 +1,7 @@
 # Inyección SQL
 
 1. [Introducción](#introducción)
-	1. [Inyección SQL](#inyección-sql)
+	1. [Inyección SQL](#inyeccion-sql)
 	2. [Casos de uso](#casos-de-uso)
 2. [Introducción a bases de datos](#introducción-a-bases-de-datos)
 	1. [Database Management Systems](#database-management-systems)
