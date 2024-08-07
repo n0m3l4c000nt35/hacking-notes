@@ -102,6 +102,37 @@ A[Usuario] <--> B[Cliente] <--> C[Servidor] <--> D[DBMS]
 - Eludir el inicio de sesión sin ingresar datos válidos.
 - Acceder a características que están bloqueadas para usuarios específicos, cómo paneles de administración.
 - Leer y escribir archivos directamente en el servidor back-end, ubicando back doors en el servidor back-end y ganar control directorio sobre el, y eventualmente tomar control total de un sitio web.
-### Prevención
+### Prevencion
 - Las inyecciones SQL son causadas por aplicaciones web mal codeadas o servidores back-end y bases de datos mal protegidas.
 ## Introduccion a bases de datos
+- Las aplicaciones web usan bases de datos para guardar contenido e información relacionada a la aplicación web, como imágenes, archivos, posts, actualizaciones o datos de usuarios.
+- Hay diferentes tipos de bases de datos, cada una con un tipo de uso particular.
+### Database Management Systems
+- Un sistema de gestión de bases de datos (DBMS) ayuda a crear, definir, alojar y administrar bases de datos.
+- Tipos de DBMS: basado en archivos, DBMS relacional (RDBMS), NoSQL, basados en gráficos, clave/valor.
+- Maneras de interactuar con una DBMS: herramientas de línea de comandos, interfaces gráficas, APIs (Application Programming Interfaces).
+
+| Característica                     | Descripción                                                                                                                   |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Concurrencia                       | Asegura que las intecciones simultáneas sean exitosas sin corrupción o pérdida de datos.                                      |
+| Consistencia                       | Aasegura que los datos son consistentes y válidos en toda la base de datos.                                                   |
+| Seguridad                          | Controles de seguridad detallados a través de permisos y autenticación de usuarios.                                           |
+| Confianza                          | Realiza copias de seguridad de las bases de datos y revertirlas a un estado anterior en caso de pérdida o violación de datos. |
+| Lenguaje de consultas estructurado | SQL simplifica la interacción con la base de datos con una intuitiva sintaxis que soporta muchas operaciones.                 |
+
+### Arquitectura
+```mermaid
+flowchart LR
+A[Usuario] <--> B[Cliente]
+B[Aplicación\nCliente] <--> C[Servidor]
+C[Aplicación\nServidor] <--> D[DBMS]
+D[DBMS] --> E[Usuarios]
+D[DBMS] --> F[Administrador\nde la\nbase de datos]
+```
+
+1. El usuario utiliza una aplicación web para ingresar datos.
+2. Los datos son enviados al servidor a través de llamadas a una API u otras solicitudes.
+3. El servidor interpreta estos eventos y los pone en una forma requerida por la DBMS.
+4. El servidor usa librerías específicas y controladores basados en el tipo de DBMS para interactuar con las solicitudes.
+5. La DBMS recibe las solicitudes y lleva a cabo las operaciones solicitadas que pueden incluir la inserción, obtención, eliminación o actualización de datos.
+6. Después de procesar las solicitudes la DBMS retorna cualquier información solicitada o códigos de error.
