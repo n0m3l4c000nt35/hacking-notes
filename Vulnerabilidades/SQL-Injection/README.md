@@ -329,3 +329,30 @@ MariaDB [users]> DESCRIBE logins;
 MariaDB [users]> CREATE TABLE logins ( id INT NOT NULL AUTO_INCREMENT, username VARCHAR(100) UNIQUE NOT NULL, password VARCHAR(100) NOT NULL, date_of_joining DATETIME DEFAULT NOW(), PRIMARY KEY (id) );
 Query OK, 0 rows affected (0,032 sec)
 ```
+
+## INSERT statement
+- Agrega nuevos registros a una tabla.
+- Agregar un registro insertando datos en cada columna:
+
+```bash
+MariaDB [users]> INSERT INTO logins VALUES(1, 'admin', 'adminpassword', '2024-08-01');
+Query OK, 1 row affected (0,006 sec)
+```
+
+- Agregar un registro dejando los valores por defecto en las columnas que lo tienen:
+
+```bash
+MariaDB [users]> INSERT INTO logins(username, password) VALUES('victim1', 'victim1password');
+Query OK, 1 row affected (0,009 sec)
+```
+
+- Agregar más de un registro a la vez:
+
+```bash
+MariaDB [users]> INSERT INTO logins(username, password) VALUES('victim2', 'victim2password'), ('victim3', 'victim3password');
+Query OK, 2 rows affected (0,010 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+```
+
+## SELECT statement
+- 
