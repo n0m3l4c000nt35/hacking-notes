@@ -11,7 +11,7 @@
 	1. [Bases de datos relacionales](#bases-de-datos-relacionales)
 	2. [Bases de datos no relacionales](#bases-de-datos-no-relacionales)
 4. [Introducción a MySQL](#introduccion-a-mysql)
-	1. [Structured Query Language(SQL)](#structured-query-language(sql))
+	1. [Structured Query Language(SQL)](#structured-query-language)
 	2. [Command Line](#command-line)
 	3. [Crear base de datos](#crear-base-de-datos)
 	4. [Tablas](#tablas)
@@ -177,7 +177,7 @@ D[DBMS] --> F[Administrador\nde la\nbase de datos]
 	4. Gráficos
 
 ## Introduccion a MySQL
-### Structured Query Language(SQL)
+### Structured Query Language
 - SQL puede llevar a cabo las siguientes acciones:
 	- Obtener datos
 	- Actualizar datos
