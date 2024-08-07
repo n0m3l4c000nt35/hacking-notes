@@ -10,7 +10,7 @@
 3. [Tipos de bases de datos](#tipos-de-bases-de-datos)
 	1. [Bases de datos relacionales](#bases-de-datos-relacionales)
 	2. [Bases de datos no relacionales](#bases-de-datos-no-relacionales)
-4. [Introducción a MySQL](#introducción-a-mysql)
+4. [Introducción a MySQL](#introduccion-a-mysql)
 	1. [Structured Query Language(SQL)](#structured-query-language(sql))
 	2. [Command Line](#command-line)
 	3. [Crear base de datos](#crear-base-de-datos)
@@ -30,33 +30,33 @@
 	1. [Operador AND](#operador-and)
 	2. [Operador OR](#operador-or)
 	3. [Operador NOT](#operador-not)
-	4. [Operadores de símbolos](#operadores-de-símbolos)
+	4. [Operadores de símbolos](#operadores-de-simbolos)
 	5. [Operadores usados en consultas](#operadores-usados-en-consultas)
-	6. [Precedencia de operadores múltiples](#precedencia-de-operadores-múltiples)
-8. [Introducción a las inyecciones SQL](#introducción-a-las-inyecciones-sql)
+	6. [Precedencia de operadores múltiples](#precedencia-de-operadores-multiples)
+8. [Introducción a las inyecciones SQL](#introduccion-a-las-inyecciones-sql)
 	1. [Uso de SQL en aplicaciones web](#uso-de-sql-en-aplicaciones-web)
-	2. [Qué es una inyección?](#qué-es-una-inyección)
-	3. [Inyección SQL](#inyección-sql)
+	2. [Qué es una inyección?](#que-es-una-inyeccion)
+	3. [Inyeccion SQL](#inyección-sql)
 	4. [Errores de sintaxis](#errores-de-sintaxis)
 	5. [Tipos de inyecciones SQL](#tipos-de-inyecciones-sql)
-9. [Alterando la lógica de una consulta](#alterando-la-lógica-de-una-consulta)
-	1. [Eludiendo la autenticación](#eludiendo-la-autenticación)
+9. [Alterando la lógica de una consulta](#alterando-la-logica-de-una-consulta)
+	1. [Eludiendo la autenticación](#eludiendo-la-autenticacion)
 	2. [Identificando SQLi ](#identificando-sqli)
-	3. [Inyección OR](#inyección-or)
-	4. [Eludiendo la autenticación con el operador OR](#eludiendo-la-autenticación-con-el-operador-or)
+	3. [Inyección OR](#inyeccion-or)
+	4. [Eludiendo la autenticación con el operador OR](#eludiendo-la-autenticacion-con-el-operador-or)
 10. [Usando comentarios](#usando-comentarios)
 	1. [Comentarios](#comentarios)
-	2. [Eludiendo autenticación con comentarios](#eludiendo-autenticación-con-comentarios)
+	2. [Eludiendo autenticación con comentarios](#eludiendo-autenticacion-con-comentarios)
 11. [Clausula UNION](#clausula-union)
 	1. [UNION](#union)
 	2. [Columnas pares](#columnas-pares)
 	3. [Columnas impares](#columnas-impares)
-12. [Inyección UNION](#inyección-union)
+12. [Inyección UNION](#inyeccion-union)
 	1. [Detectar número de columnas](#detectar-número-de-columnas)
 		1. [Usando ORDER BY](#usando-order-by)
 		2. [Usando UNION](#usando-union)
-	2. [Ubicación de la inyección](#ubicación-de-la-inyección)
-13. [Enumeración de la base de datos](#enumeración-de-la-base-de-datos)
+	2. [Ubicación de la inyección](#ubicacion-de-la-inyeccion)
+13. [Enumeración de la base de datos](#enumeracion-de-la-base-de-datos)
 	1. [Identificando MySQL](#identificando-mysql)
 	2. [Base de datos INFORMATION_SCHEMA](#base-de-datos-information_schema)
 	3. [SCHEMATA](#schemata)
@@ -66,9 +66,9 @@
 14. [Leyendo archivos](#leyendo-archivos)
 	1. [Privilegios](#privilegios)
 	2. [LOAD_FILE](#load_file)
-15. [Mitigando la inyección SQL](#mitigando-la-inyección-sql)
-	1. [Sanitización del input del usuario](#sanitización-del-input-del-usuario)
-	2. [Validación del input del usuario](#validación-del-input-del-usuario)
+15. [Mitigando la inyección SQL](#mitigando-la-inyeccion-sql)
+	1. [Sanitización del input del usuario](#sanitizacion-del-input-del-usuario)
+	2. [Validación del input del usuario](#validacion-del-input-del-usuario)
 	3. [Privilegios de usuario](#privilegios-de-usuario)
 	4. [Web Application Firewall (WAF)](#web-application-firewall-(waf))
 	5. [Consultar parametrizadas](#consultas-parametrizadas)
@@ -136,3 +136,102 @@ D[DBMS] --> F[Administrador\nde la\nbase de datos]
 4. El servidor usa librerías específicas y controladores basados en el tipo de DBMS para interactuar con las solicitudes.
 5. La DBMS recibe las solicitudes y lleva a cabo las operaciones solicitadas que pueden incluir la inserción, obtención, eliminación o actualización de datos.
 6. Después de procesar las solicitudes la DBMS retorna cualquier información solicitada o códigos de error.
+## Tipos de bases de datos
+- Las bases de datos en general se categorizan en:
+	- Relacionales
+	- No relacionales
+- Las bases de datos relacionales usan SQL.
+### Bases de datos relacionales
+- Usan un esquema, una plantilla, para determinar la estructura de datos guardada en la base de datos.
+- Las tablas se asocian con keys que proveen un resumen o acceso a una fila o columna específica cuando se necesita revisar datos específicos.
+- Las tablas también se llaman entidades, y están relacionadas todas unas a otras.
+- Para relacionar las tablas se requiere una RDBMS (Relational Database Management System).
+- Se puede relacionar una key de **X** tabla a una key de **Y** tabla para obtener información de **X** tabla sin guardar toda la información de **Y** en **X**.
+- Una tabla puede tener más de una key así como otra columna puede usarse como una key para relacionar otra tabla.
+
+**Tabla X**
+
+| id  | col2 | col3 | col4 |
+| --- | ---- | ---- | ---- |
+| 1   | x    | x    | x    |
+| 2   | x    | x    | x    |
+| 3   | x    | x    | x    |
+
+**Tabla Y**
+
+| id  | id_x | col3 | col4 |
+| --- | ---- | ---- | ---- |
+| 1   | 2    | x    | x    |
+| 2   | 2    | x    | x    |
+| 3   | 1    | x    | x    |
+
+- La relación entre las tablas dentro de una base de datos se llama esquema.
+### Bases de datos no relacionales
+- También se llaman NoSQL, no usan tablas, filas, columnas, llaves primarias, relaciones o esquemas.
+- Guarda la información usando distintos modelos de almacenamiento dependiendo del tipo de información almacenada.
+- Debido a la falta de estructura son muy escalables y flexibles.
+- Modelos de almacenamiento típicos:
+	1. Clave/Valor
+	2. Basada en documentos
+	3. Wide-Column
+	4. Gráficos
+
+## Introduccion a MySQL
+### Structured Query Language(SQL)
+- SQL puede llevar a cabo las siguientes acciones:
+	- Obtener datos
+	- Actualizar datos
+	- Eliminar datos
+	- Crear tablas y bases de datos
+	- Agregar y eliminar usuarios
+	- Asignar permisos a usuarios
+### Command Line
+- La herramienta `mysql` se usa para autenticarse e interactuar con la base de datos MySQL/MariaDB.
+- La flag `-u` se usa para ingresar el usuario y la flag `-p` para ingresar la contraseña.
+- La flag `-p` debería pasarse vacía, así no se pasa directamente en la línea de comandos y se guarda en texto plano en el archivo `bash_history`.
+
+```bash
+sudo mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 40
+Server version: 10.11.6-MariaDB-0+deb12u1 Debian 12
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+```
+
+- Para ingresar la contraseña directamente debe pasarse sin espacios entre la flag `-p` y la contraseña `-p<contraseña>`.
+- Ver privilegios que se tiene `SHOW GRANTS FOR root@localhost;`, `SHOW GRANTS FOR CURRENT_USER();`.
+
+```bash
+MariaDB [(none)]> SHOW GRANTS FOR root@localhost;
++-----------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for root@localhost                                                                                                               |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO `root`@`localhost` IDENTIFIED VIA mysql_native_password USING 'invalid' OR unix_socket WITH GRANT OPTION |
+| GRANT PROXY ON ''@'%' TO 'root'@'localhost' WITH GRANT OPTION                                                                           |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0,000 sec)
+```
+
+```bash
+MariaDB [(none)]> SHOW GRANTS FOR CURRENT_USER();
++-----------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for root@localhost                                                                                                               |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO `root`@`localhost` IDENTIFIED VIA mysql_native_password USING 'invalid' OR unix_socket WITH GRANT OPTION |
+| GRANT PROXY ON ''@'%' TO 'root'@'localhost' WITH GRANT OPTION                                                                           |
++-----------------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0,000 sec)
+```
+
+- Cuando no se especifica un host, se usa el servidor por defecto `localhost`.
+- Especificar host remoto `-h` y puerto `-P`.
+- El puerto por defecto de MySQL/MariaDB es 3306 pero puede configurarse.
+### Crear base de datos
+
+### Tablas
