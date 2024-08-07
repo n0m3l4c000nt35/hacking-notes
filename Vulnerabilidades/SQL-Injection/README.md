@@ -205,7 +205,7 @@ MariaDB [(none)]>
 ```
 
 - Para ingresar la contraseña directamente debe pasarse sin espacios entre la flag `-p` y la contraseña `-p<contraseña>`.
-- Ver privilegios que se tiene `SHOW GRANTS FOR root@localhost;`, `SHOW GRANTS FOR CURRENT_USER();`.
+- Ver privilegios que se tiene `SHOW GRANTS FOR root@localhost;`, `SHOW GRANTS FOR CURRENT_USER();`:
 
 ```bash
 MariaDB [(none)]> SHOW GRANTS FOR root@localhost;
@@ -233,5 +233,99 @@ MariaDB [(none)]> SHOW GRANTS FOR CURRENT_USER();
 - Especificar host remoto `-h` y puerto `-P`.
 - El puerto por defecto de MySQL/MariaDB es 3306 pero puede configurarse.
 ### Crear base de datos
+- Crear base de datos `CREATE DATABASE users;`:
+
+```bash
+MariaDB [(none)]> CREATE DATABASE users;
+Query OK, 1 row affected (0,000 sec)
+```
+
+- Las consultas SQL se terminan con un punto y coma.
+- Listar las bases de datos `SHOW DATABASES;`:
+
+```bash
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| users              |
++--------------------+
+5 rows in set (0,000 sec)
+```
+
+- Cambiar a una base de datos específica `USE <base-de-datos>;`:
+
+```bash
+MariaDB [(none)]> USE users;
+Database changed
+```
+
+- Las declaraciones SQL no distinguen entre mayúsculas y minúsculas.
+- Los nombres de las bases de datos distinguen entre mayúsculas y minúsculas.
+- Es buena práctica especificar declaraciones en mayúsculas.
 
 ### Tablas
+- DBMS almacena en forma de tablas.
+- Una tabla está formada por filas y columnas.
+- La intersección de una fila y una columna se llama celda.
+- Cada tabla se crea con un número fijo de columnas, cada columna es de un tipo de dato particular.
+- El tipo de dato define el tipo de valor que se guarda en una columna.
+- Tipos de datos: numbers, strings, date, time, y binary data. [Tipos de datos](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
+- Puede haber tipos de datos específicos de DBMS.
+- Crear tabla `CREATE TABLE`:
+
+```bash
+MariaDB [users]> CREATE TABLE logins (
+    -> id INT,
+    -> username VARCHAR(100),
+    -> password VARCHAR(100),
+    -> date_of_joining DATETIME
+    -> );
+Query OK, 0 rows affected (0,036 sec)
+```
+
+- Se especifica el nombre de la tabla y entre paréntesis cada columna por su nombre y su tipo de dato, cada columna separada por una coma.
+- Listar tablas de la base de datos en uso `SHOW TABLES;`:
+
+```bash
+MariaDB [users]> SHOW TABLES;
++-----------------+
+| Tables_in_users |
++-----------------+
+| logins          |
++-----------------+
+1 row in set (0,000 sec)
+```
+
+- Listar la estructura de una tabla con sus campos y tipos de datos `DESCRIBE logins;`:
+
+```bash
+MariaDB [users]> DESCRIBE logins;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| id              | int(11)      | YES  |     | NULL    |       |
+| username        | varchar(100) | YES  |     | NULL    |       |
+| password        | varchar(100) | YES  |     | NULL    |       |
+| date_of_joining | datetime     | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+4 rows in set (0,001 sec)
+```
+
+#### Propiedades de tabla
+- [Propiedades](https://dev.mysql.com/doc/refman/8.0/en/create-table.html)
+- Se pueden configurar propiedadses para una tabla y cada columna.
+- `AUTO_INCREMENT` incrementa automáticamente en uno cada vez que un item se agrega a la tabla.
+- `NOT NULL` asegura que la columna nunca se deje vacía.
+- `UNIQUE` asegura que el item agregado es único.
+- `DEFAULT` especifica el valor por defecto.
+- `PRIMARY KEY` identifica de manera única cada registro en una tabla y se usa para relacionar tablas.
+
+```bash
+MariaDB [users]> CREATE TABLE logins ( id INT NOT NULL AUTO_INCREMENT, username VARCHAR(100) UNIQUE NOT NULL, password VARCHAR(100) NOT NULL, date_of_joining DATETIME DEFAULT NOW(), PRIMARY KEY (id) );
+Query OK, 0 rows affected (0,032 sec)
+```
