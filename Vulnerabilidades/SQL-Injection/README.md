@@ -317,7 +317,7 @@ MariaDB [users]> DESCRIBE logins;
 ```
 
 #### Propiedades de tabla
-- [Propiedades](https://dev.mysql.com/doc/refman/8.0/en/create-table.html)
+- [Propiedades](https://dev.mysql.com/doc/refman/8.0/en/create-table.html).
 - Se pueden configurar propiedadses para una tabla y cada columna.
 - `AUTO_INCREMENT` incrementa automáticamente en uno cada vez que un item se agrega a la tabla.
 - `NOT NULL` asegura que la columna nunca se deje vacía.
@@ -331,6 +331,7 @@ Query OK, 0 rows affected (0,032 sec)
 ```
 
 ## INSERT statement
+- [INSERT](https://dev.mysql.com/doc/refman/8.0/en/insert.html).
 - Agrega nuevos registros a una tabla.
 - Agregar un registro insertando datos en cada columna:
 
@@ -355,4 +356,40 @@ Records: 2  Duplicates: 0  Warnings: 0
 ```
 
 ## SELECT statement
+- [SELECT](https://dev.mysql.com/doc/refman/8.0/en/select.html).
+- Obtener datos.
+- Obtener todos los datos de una tabla:
+
+```bash
+MariaDB [users]> SELECT * FROM logins;
++----+----------+-----------------+---------------------+
+| id | username | password        | date_of_joining     |
++----+----------+-----------------+---------------------+
+|  1 | admin    | adminpassword   | 2024-08-01 00:00:00 |
+|  2 | victim1  | victim1password | 2024-08-07 16:46:34 |
+|  3 | victim2  | victim2password | 2024-08-07 16:48:24 |
+|  4 | victim3  | victim3password | 2024-08-07 16:48:24 |
++----+----------+-----------------+---------------------+
+4 rows in set (0,006 sec)
+```
+
+- El símbolo del asterisco **\*** actúa como un comodía y selecciona todas las columnas.
+- La palabra clave **FROM** indica la tabla de la que se toman los datos.
+- Obtener datos de columnas específicas:
+
+```bash
+MariaDB [users]> SELECT username,password FROM logins;
++----------+-----------------+
+| username | password        |
++----------+-----------------+
+| admin    | adminpassword   |
+| victim1  | victim1password |
+| victim2  | victim2password |
+| victim3  | victim3password |
++----------+-----------------+
+4 rows in set (0,001 sec)
+```
+
+## DROP statement
+- [DROP](https://dev.mysql.com/doc/refman/8.0/en/drop-table.html).
 - 
