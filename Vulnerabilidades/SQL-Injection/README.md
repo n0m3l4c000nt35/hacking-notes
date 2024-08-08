@@ -279,12 +279,7 @@ Database changed
 - Crear tabla `CREATE TABLE`:
 
 ```bash
-MariaDB [users]> CREATE TABLE logins (
-    -> id INT,
-    -> username VARCHAR(100),
-    -> password VARCHAR(100),
-    -> date_of_joining DATETIME
-    -> );
+MariaDB [users]> CREATE TABLE logins (id INT, username VARCHAR(100), password VARCHAR(100), date_of_joining DATETIME);
 Query OK, 0 rows affected (0,036 sec)
 ```
 
@@ -326,7 +321,7 @@ MariaDB [users]> DESCRIBE logins;
 - `PRIMARY KEY` identifica de manera única cada registro en una tabla y se usa para relacionar tablas.
 
 ```bash
-MariaDB [users]> CREATE TABLE logins ( id INT NOT NULL AUTO_INCREMENT, username VARCHAR(100) UNIQUE NOT NULL, password VARCHAR(100) NOT NULL, date_of_joining DATETIME DEFAULT NOW(), PRIMARY KEY (id) );
+MariaDB [users]> CREATE TABLE logins (id INT NOT NULL AUTO_INCREMENT, username VARCHAR(100) UNIQUE NOT NULL, password VARCHAR(100) NOT NULL, date_of_joining DATETIME DEFAULT NOW(), PRIMARY KEY (id));
 Query OK, 0 rows affected (0,032 sec)
 ```
 
@@ -392,4 +387,91 @@ MariaDB [users]> SELECT username,password FROM logins;
 
 ## DROP statement
 - [DROP](https://dev.mysql.com/doc/refman/8.0/en/drop-table.html).
-- 
+- Eliminar tablas y bases de datos del servidor.
+
+```bash
+MariaDB [users]> DROP TABLE logins;
+Query OK, 0 rows affected (0,093 sec)
+```
+
+## ALTER statement
+- [ALTER](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html).
+- Cambiar el nombre de una tabla, cambiar el nombre de cualquier campo, o eliminar o agregar columnas.
+
+```bash
+MariaDB [users]> ALTER TABLE logins ADD nickname VARCHAR(100);
+Query OK, 0 rows affected (0,101 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [users]> DESCRIBE logins;
++-----------------+--------------+------+-----+---------------------+----------------+
+| Field           | Type         | Null | Key | Default             | Extra          |
++-----------------+--------------+------+-----+---------------------+----------------+
+| id              | int(11)      | NO   | PRI | NULL                | auto_increment |
+| username        | varchar(100) | NO   | UNI | NULL                |                |
+| password        | varchar(100) | NO   |     | NULL                |                |
+| date_of_joining | datetime     | YES  |     | current_timestamp() |                |
+| nickname        | varchar(100) | YES  |     | NULL                |                |
++-----------------+--------------+------+-----+---------------------+----------------+
+5 rows in set (0,001 sec)
+```
+
+- Renombrar una columna:
+
+```bash
+MariaDB [users]> ALTER TABLE logins RENAME COLUMN nickname TO nick;
+Query OK, 0 rows affected (0,153 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [users]> DESCRIBE logins;
++-----------------+--------------+------+-----+---------------------+----------------+
+| Field           | Type         | Null | Key | Default             | Extra          |
++-----------------+--------------+------+-----+---------------------+----------------+
+| id              | int(11)      | NO   | PRI | NULL                | auto_increment |
+| username        | varchar(100) | NO   | UNI | NULL                |                |
+| password        | varchar(100) | NO   |     | NULL                |                |
+| date_of_joining | datetime     | YES  |     | current_timestamp() |                |
+| nick            | varchar(100) | YES  |     | NULL                |                |
++-----------------+--------------+------+-----+---------------------+----------------+
+5 rows in set (0,001 sec)
+```
+
+- Cambiar el tipo de dato de una columna:
+
+```bash
+MariaDB [users]> ALTER TABLE logins MODIFY nick INT;
+Query OK, 4 rows affected (0,147 sec)              
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [users]> DESCRIBE logins;
++-----------------+--------------+------+-----+---------------------+----------------+
+| Field           | Type         | Null | Key | Default             | Extra          |
++-----------------+--------------+------+-----+---------------------+----------------+
+| id              | int(11)      | NO   | PRI | NULL                | auto_increment |
+| username        | varchar(100) | NO   | UNI | NULL                |                |
+| password        | varchar(100) | NO   |     | NULL                |                |
+| date_of_joining | datetime     | YES  |     | current_timestamp() |                |
+| nick            | int(11)      | YES  |     | NULL                |                |
++-----------------+--------------+------+-----+---------------------+----------------+
+5 rows in set (0,008 sec)
+```
+
+- Eliminar una columna:
+
+```bash
+MariaDB [users]> ALTER TABLE logins DROP nick;
+Query OK, 0 rows affected (0,121 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [users]> DESCRIBE logins;
++-----------------+--------------+------+-----+---------------------+----------------+
+| Field           | Type         | Null | Key | Default             | Extra          |
++-----------------+--------------+------+-----+---------------------+----------------+
+| id              | int(11)      | NO   | PRI | NULL                | auto_increment |
+| username        | varchar(100) | NO   | UNI | NULL                |                |
+| password        | varchar(100) | NO   |     | NULL                |                |
+| date_of_joining | datetime     | YES  |     | current_timestamp() |                |
++-----------------+--------------+------+-----+---------------------+----------------+
+4 rows in set (0,005 sec)
+```
+
