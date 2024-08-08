@@ -475,3 +475,23 @@ MariaDB [users]> DESCRIBE logins;
 4 rows in set (0,005 sec)
 ```
 
+## UPDATE statement
+- [UPDATE](https://dev.mysql.com/doc/refman/8.0/en/update.html).
+- Actualizar registros específicos dentro de una tabla, basado en ciertas condiciones.
+
+```bash
+MariaDB [users]> UPDATE logins SET password = 'changed_password' WHERE id > 1;
+Query OK, 3 rows affected (0,009 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [users]> SELECT * FROM logins;
++----+----------+------------------+---------------------+
+| id | username | password         | date_of_joining     |
++----+----------+------------------+---------------------+
+|  1 | admin    | adminpassword    | 2024-08-01 00:00:00 |
+|  2 | victim1  | changed_password | 2024-08-08 11:41:14 |
+|  3 | victim2  | changed_password | 2024-08-08 11:41:20 |
+|  4 | victim3  | changed_password | 2024-08-08 11:41:20 |
++----+----------+------------------+---------------------+
+4 rows in set (0,000 sec)
+```
