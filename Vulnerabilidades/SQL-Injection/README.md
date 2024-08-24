@@ -15,17 +15,17 @@
 	2. [Command Line](#command-line)
 	3. [Crear base de datos](#crear-base-de-datos)
 	4. [Tablas](#tablas)
-5. [SQL Statements](#sql-statements)
-	1. [INSERT Statement](#insert-statement)
-	2. [SELECT Statement](#select-statement)
-	3. [DROP Statement](#drop-statement)
-	4. [ALTER Statement](#alter-statement)
-	5. [UPDATE Statement](#update-statement)
+5. [Sentencias SQL](#sentencias-sql)
+	1. [Sentencia INSERT](#sentencia-insert)
+	2. [Sentencia SELECT](#sentencia-select)
+	3. [Sentencia DROP](#sentencia-drop)
+	4. [Sentencia ALTER](#sentencia-alter)
+	5. [Sentencia UPDATE](#sentencia-update)
 6. [Resultados de consultas](#resultados-de-consulta)
 	1. [Ordenar resultados](#ordenar-resultados)
 	2. [Limitar resultados](#limitar-resultados)
-	3. [Clausula WHERE](#clausula-where)
-	4. [Clausula LIKE](#clausula-like)
+	3. [Sentencia WHERE](#sentencia-where)
+	4. [Sentencia LIKE](#sentencia-like)
 7. [Operadores SQL](#operadores-sql)
 	1. [Operador AND](#operador-and)
 	2. [Operador OR](#operador-or)
@@ -325,7 +325,8 @@ MariaDB [users]> CREATE TABLE logins (id INT NOT NULL AUTO_INCREMENT, username V
 Query OK, 0 rows affected (0,032 sec)
 ```
 
-## INSERT statement
+## Sentencias SQL
+### Sentencia INSERT
 - [INSERT](https://dev.mysql.com/doc/refman/8.0/en/insert.html).
 - Agrega nuevos registros a una tabla.
 - Agregar un registro insertando datos en cada columna:
@@ -350,7 +351,7 @@ Query OK, 2 rows affected (0,010 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 ```
 
-## SELECT statement
+### Sentencia SELECT
 - [SELECT](https://dev.mysql.com/doc/refman/8.0/en/select.html).
 - Obtener datos.
 - Obtener todos los datos de una tabla:
@@ -385,7 +386,7 @@ MariaDB [users]> SELECT username,password FROM logins;
 4 rows in set (0,001 sec)
 ```
 
-## DROP statement
+### Sentencia DROP
 - [DROP](https://dev.mysql.com/doc/refman/8.0/en/drop-table.html).
 - Eliminar tablas y bases de datos del servidor.
 
@@ -394,7 +395,7 @@ MariaDB [users]> DROP TABLE logins;
 Query OK, 0 rows affected (0,093 sec)
 ```
 
-## ALTER statement
+### Sentencia ALTER
 - [ALTER](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html).
 - Cambiar el nombre de una tabla, cambiar el nombre de cualquier campo, o eliminar o agregar columnas.
 
@@ -475,7 +476,7 @@ MariaDB [users]> DESCRIBE logins;
 4 rows in set (0,005 sec)
 ```
 
-## UPDATE statement
+### Sentencia UPDATE
 - [UPDATE](https://dev.mysql.com/doc/refman/8.0/en/update.html).
 - Actualizar registros específicos dentro de una tabla, basado en ciertas condiciones.
 
@@ -495,3 +496,26 @@ MariaDB [users]> SELECT * FROM logins;
 +----+----------+------------------+---------------------+
 4 rows in set (0,000 sec)
 ```
+
+## Resultados de consultas
+### Ordenar resultados
+- [ORDER BY](https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html).
+- Ordena los resultados de una consulta especificando la columna por la que ordenar.
+- Ordenar resultados:
+
+```bash
+MariaDB [users]> SELECT * FROM logins ORDER BY password;
++----+----------+------------------+---------------------+
+| id | username | password         | date_of_joining     |
++----+----------+------------------+---------------------+
+|  1 | admin    | adminpassword    | 2024-08-01 00:00:00 |
+|  2 | victim1  | changed_password | 2024-08-08 11:41:14 |
+|  3 | victim2  | changed_password | 2024-08-08 11:41:20 |
+|  4 | victim3  | changed_password | 2024-08-08 11:41:20 |
++----+----------+------------------+---------------------+
+4 rows in set (0,001 sec)
+```
+
+### Limitar resultados
+### Sentencia WHERE
+### Sentencia LIKE
