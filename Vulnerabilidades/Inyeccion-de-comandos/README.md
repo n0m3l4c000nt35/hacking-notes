@@ -30,3 +30,36 @@
 - Siempre que la entrada del usuario se utiliza dentro de una consulta sin estar debidamente desinfectada, puede ser posible escapar de los límites de la cadena de texto de entrada del usuario a la consulta principal y manipularla para cambiar su propósito previsto.
 - A medida que se introduzcan más tecnologías web en las aplicaciones web, se verán nuevos tipos de inyecciones introducidas en las aplicaciones web.
 ### Inyeccion de comandos de sistema operativo
+- Cuando se trata de inyecciones de comandos del sistema operativo, la entrada del usuario que se controla debe ir directa o indirectamente a (o afectar de alguna manera) una consulta web que ejecuta comandos del sistema.
+- Todos los lenguajes de programación web tienen diferentes funciones que permiten al desarrollador ejecutar comandos del sistema operativo directamente en el servidor back-end cuando lo necesite.
+- Se puede usar para diversos propósitos, como instalar complementos o ejecutar ciertas aplicaciones.
+#### Ejemplo PHP
+- Una aplicación web escrita en PHP puede usar las funciones `exec`, `system`, `shell_exec`, `passthru` o `popen` para ejecutar comandos directamente en el servidor back-end, cada uno con un caso de uso ligeramente diferente.
+
+```php
+<?php
+if (isset($_GET['filename'])) {
+    system("touch /tmp/" . $_GET['filename'] . ".pdf");
+}
+?>
+```
+
+- Quizás una aplicación web en particular tenga una funcionalidad que permita a los usuarios crear un nuevo documento `.pdf` que se crea en el directorio `/tmp` con un nombre de archivo proporcionado por el usuario y luego puede ser utilizado por la aplicación web para fines de procesamiento de documentos.
+- Como la entrada del usuario del parámetro `filename` en la solicitud `GET` se usa directamente con el comando `touch` (sin ser desinfectado o escapado primero), la aplicación web se vuelve vulnerable a la inyección de comandos del sistema operativo.
+- Esta falla se puede aprovechar para ejecutar comandos de sistema arbitrarios en el servidor back-end.
+
+#### Ejemplo NodeJS
+- Esto no es exclusivo de PHP, sino que puede ocurrir en cualquier marco o lenguaje de desarrollo web.
+- Si se desarrolla una aplicación web en `NodeJS`, un desarrollador puede usar `child_process.exec` o `child_process.spawn` para el mismo propósito.
+- El siguiente ejemplo realiza una funcionalidad similar a la anterior:
+
+```javascript
+app.get("/createfile", function(req, res){
+    child_process.exec(`touch /tmp/${req.query.filename}.txt`);
+})
+```
+
+- El código anterior también es vulnerable a una vulnerabilidad de inyección de comandos, ya que utiliza el parámetro `filename` de la solicitud `GET` como parte del comando sin desinfectarlo primero.
+- Tanto las aplicaciones web `PHP` como las `NodeJS` pueden explotarse utilizando los mismos métodos de inyección de comandos.
+- Otros lenguajes de programación de desarrollo web tienen funciones similares que se utilizan para los mismos fines y, si son vulnerables, pueden explotarse utilizando los mismos métodos de inyección de comandos.
+- Las vulnerabilidades de inyección de comandos no son exclusivas de las aplicaciones web, sino que también pueden afectar a otros binarios y aplicaciones de escritorio ​​si pasan una entrada de usuario no sanitizada a una función que ejecuta comandos del sistema, que también pueden explotarse con los mismos métodos de inyección de comandos.
