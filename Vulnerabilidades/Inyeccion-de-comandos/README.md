@@ -51,7 +51,6 @@ if (isset($_GET['filename'])) {
 #### Ejemplo NodeJS
 - Puede ocurrir en cualquier framework o lenguaje de desarrollo web.
 - Si se desarrolla una aplicación web en `NodeJS`, un desarrollador puede usar `child_process.exec` o `child_process.spawn` para el mismo propósito.
-- El siguiente ejemplo realiza una funcionalidad similar a la anterior:
 
 ```javascript
 app.get("/createfile", function(req, res){
