@@ -49,7 +49,7 @@ if (isset($_GET['filename'])) {
 - Esta falla se puede aprovechar para ejecutar comandos de sistema arbitrarios en el servidor back-end.
 
 #### Ejemplo NodeJS
-- Esto no es exclusivo de PHP, sino que puede ocurrir en cualquier marco o lenguaje de desarrollo web.
+- Puede ocurrir en cualquier framework o lenguaje de desarrollo web.
 - Si se desarrolla una aplicación web en `NodeJS`, un desarrollador puede usar `child_process.exec` o `child_process.spawn` para el mismo propósito.
 - El siguiente ejemplo realiza una funcionalidad similar a la anterior:
 
