@@ -2,6 +2,9 @@
 1. [Introduccion a la inyeccion de comandos](#introduccion-a-la-inyeccion-de-comandos)
 	1. [Que son las inyecciones](#que-son-las-inyecciones)
 	2. [Inyección de comandos de sistema operativo](#inyeccion-de-comandos-de-sistema-operativo)
+2. [Detección](#deteccion)
+	1. [Detección de inyección de comandos](#deteccion-de-inyeccion-de-comandos)
+	2. [Métodos de inyección de comandos](#metodos-de-inyeccion-de-comandos)
 ## Introduccion a la inyeccion de comandos
 - Una vulnerabilidad de inyección de comandos es uno de los tipos de vulnerabilidad más críticos.
 - Permite ejecutar comandos del sistema directamente en el servidor que aloja el back-end, lo que podría llevar a comprometer toda la red.
@@ -62,3 +65,32 @@ app.get("/createfile", function(req, res){
 - Tanto las aplicaciones web `PHP` como las `NodeJS` pueden explotarse utilizando los mismos métodos de inyección de comandos.
 - Otros lenguajes de programación de desarrollo web tienen funciones similares que se utilizan para los mismos fines y, si son vulnerables, pueden explotarse utilizando los mismos métodos de inyección de comandos.
 - Las vulnerabilidades de inyección de comandos no son exclusivas de las aplicaciones web, sino que también pueden afectar a otros binarios y aplicaciones de escritorio ​​si pasan una entrada de usuario no sanitizada a una función que ejecuta comandos del sistema, que también pueden explotarse con los mismos métodos de inyección de comandos.
+## Deteccion
+- El proceso para detectar las vulnerabilidades básicas de inyección de comandos del sistema operativo es el mismo proceso que para explotar dichas vulnerabilidades.
+- Agregar el comando inyectado mediante varios métodos de inyección.
+- Si el resultado del comando cambia respecto del resultado habitual previsto, se ha explotado la vulnerabilidad con éxito.
+- Esto puede no ser cierto para vulnerabilidades de inyección de comandos más avanzadas porque se pueden utilizar varios métodos de fuzzing o análisis de código para identificar posibles vulnerabilidades de inyección de comandos.
+- Luego se puede ir construyendo gradualmente el payload hasta lograr la inyección de comandos.
+### Deteccion de inyeccion de comandos
+- Una aplicación web muestra el output de un comando de sistema.
+- Si el input no está desinfectado y escapado antes de ser utilizado, es posible que se pueda inyectar otro comando arbitrario.
+### Metodos de inyeccion de comandos
+- Para inyectar un comando adicional al deseado, se puede utilizar cualquiera de los siguientes operadores:
+
+| Operador       | Caracter | Caracter URL-encodeado | Comando ejecutado                                         |
+| -------------- | -------- | ---------------------- | --------------------------------------------------------- |
+| Punto y coma   | ;        | %3b                    | Ambos                                                     |
+| Salto de línea | \n       | %0a                    | Ambos                                                     |
+| Segundo plano  | &        | %26                    | Ambos (el segundo output generalmente se muestra primero) |
+| Pipe           | \|       | %7c                    | Ambos (Solo se muestra el segundo output)                 |
+| AND            | &&       | %26%26                 | Ambos (Solo si el primero es exitoso)                     |
+| OR             | \|       | %7c%7c                 | Segundo (Solo si el primero falla)                        |
+| Sub-shell      | ``       | %60%60                 | Ambos (Solo Linux)                                        |
+| Sub-shell      | $()      | %24%28%29              | Ambos (Solo Linux)                                        |
+
+- Se puede usar cualquiera de estos operadores para inyectar otro comando de manera que se ejecuten «ambos» o «cualquiera» de los comandos.
+- Se escribe el input esperado y luego se usa cualquiera de los operadores anteriores y se escribe el comando inyectado.
+- Hay algunos operadores exclusivos de Unix que funcionarían en Linux y macOS, pero no en Windows, como envolver el comando inyectado con comillas dobles invertidas (` `` `) o con un operador de sub-shell (`$()`).
+- Para la inyección de comandos básicos, todos estos operadores se pueden usar para inyecciones de comandos independientemente del lenguaje de la aplicación web, el framework o el servidor back-end.
+- Si se inyecta en una aplicación web `PHP` que se ejecuta en un servidor `Linux`, o una aplicación web `.Net` que se ejecuta en un servidor back-end `Windows`, o una aplicación web `NodeJS` que se ejecuta en un servidor back-end `macOS`, las inyecciones deberían funcionar independientemente.
+- La única excepción puede ser el punto y coma `;`, que no funcionará si el comando se ejecuta con `Línea de comandos de Windows (CMD)`, pero sí funcionará si se ejecuta con `Windows PowerShell`.
