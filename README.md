@@ -1,3 +1,9 @@
 # Hacking Notes 📝
 
-[Vulnerabilidades](/Vulnerabilidades/README.md)
+## Information Gathering
+
+### Passive Information Gathering
+
+### Active Information Gathering
+
+#### DNS Zone Transfers
