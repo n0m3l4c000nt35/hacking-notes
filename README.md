@@ -12,6 +12,8 @@
   - Herramienta `whatweb`
   - [https://www.httrack.com](https://www.httrack.com)
 - Whois Enumeration
+  - Comando `whois`: `whois <dominio>`
+  - [https://who.is/](https://who.is/)
 - Website Footprinting With Netcraft
 - DNS Recon
 - WAF With wafw00f
