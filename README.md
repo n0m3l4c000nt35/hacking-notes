@@ -33,7 +33,7 @@
 ### Active Information Gathering
 - DNS Zone Transfers
   - `dnsenum`
-  - Archivo hosts: `/etc/hosts` (Linux),
+  - Archivo hosts: `/etc/hosts` (Linux), `C:\Windows\System32\drivers\etc\hosts` (Windows)
   - `dig axfr @<dns-server> <dominio>`
   - `fierce -dns <dominio>`
 - Host Discovery With Nmap
