@@ -17,7 +17,10 @@
 - Website Footprinting With Netcraft
   - [https://www.netcraft.com/](https://www.netcraft.com/)
 - DNS Recon
+  - Comando `dnsrecon`: `dnsrecon -d <dominio>`
+  - [https://dnsdumpster.com/](https://dnsdumpster.com/)
 - WAF With wafw00f
+  - Herramienta `wafw00f`: `wafw00f <dominio>`
 - Subdomain Enumeration With Sublist3r
 - Google Dorks
 - Email Harvesting With theHarvester
