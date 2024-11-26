@@ -15,6 +15,7 @@
   - Comando `whois`: `whois <dominio>`
   - [https://who.is/](https://who.is/)
 - Website Footprinting With Netcraft
+  - [https://www.netcraft.com/](https://www.netcraft.com/)
 - DNS Recon
 - WAF With wafw00f
 - Subdomain Enumeration With Sublist3r
