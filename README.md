@@ -6,6 +6,11 @@
 - Website Recon & Footprinting
   - Buscar: Direcciones IP, directorios escondidos de los motores de búsqueda, nombres, direcciones de email, números de teléfonos, direcciones físicas, tecnologías web usadas.
   - Comando `host`: `host <dominio>`
+  - Archivo `robots.txt`
+  - Sitemap
+  - Add-ons: `BuiltWith`, `Wappalyzer`
+  - Herramienta `whatweb`
+  - [https://www.httrack.com](https://www.httrack.com)
 - Whois Enumeration
 - Website Footprinting With Netcraft
 - DNS Recon
