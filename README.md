@@ -5,33 +5,37 @@
 ### Passive Information Gathering
 - Website Recon & Footprinting
   - Buscar: Direcciones IP, directorios escondidos de los motores de búsqueda, nombres, direcciones de email, números de teléfonos, direcciones físicas, tecnologías web usadas.
-  - Comando `host`: `host <dominio>`
+  - `host <dominio>`
   - Archivo `robots.txt`
   - Sitemap
   - Add-ons: `BuiltWith`, `Wappalyzer`
-  - Herramienta `whatweb`
+  - `whatweb`
   - [https://www.httrack.com](https://www.httrack.com)
 - Whois Enumeration
-  - Comando `whois`: `whois <dominio>`
+  - `whois <dominio>`
   - [https://who.is/](https://who.is/)
 - Website Footprinting With Netcraft
   - [https://www.netcraft.com/](https://www.netcraft.com/)
 - DNS Recon
-  - Comando `dnsrecon`: `dnsrecon -d <dominio>`
+  - `dnsrecon -d <dominio>`
   - [https://dnsdumpster.com/](https://dnsdumpster.com/)
 - WAF With wafw00f
-  - Herramienta `wafw00f`: `wafw00f <dominio>`
+  - `wafw00f <dominio>`
 - Subdomain Enumeration With Sublist3r
-  - Herramienta `sublist3r`: `sublist3r -d <dominio>`
+  - `sublist3r -d <dominio>`
 - Google Dorks
   - [Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
 - Email Harvesting With theHarvester
-  - Herramienta `theHarvester`: `theHarvester -d <dominio>`
+  - `theHarvester -d <dominio>`
 - Leaked Password Databases
   - [https://haveibeenpwned.com/](https://haveibeenpwned.com/)
 
 ### Active Information Gathering
 - DNS Zone Transfers
+  - `dnsenum`
+  - Archivo hosts: `/etc/hosts` (Linux),
+  - `dig axfr @<dns-server> <dominio>`
+  - `fierce -dns <dominio>`
 - Host Discovery With Nmap
 - Port Scanning With Nmap
 - 
