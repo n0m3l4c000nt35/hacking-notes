@@ -37,6 +37,8 @@
   - `dig axfr @<dns-server> <dominio>`
   - `fierce -dns <dominio>`
 - Host Discovery With Nmap
+  - `sudo nmap -sn <direccion-ip>`
+  - `sudo netdiscover -i <interface> -r <direccion-ip>`
 - Port Scanning With Nmap
 - 
 #### DNS Zone Transfers
