@@ -1,4 +1,4 @@
-# Hacking Notes 📝
+# 💀 Hacking Notes 📝
 
 ## Information Gathering
 
