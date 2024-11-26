@@ -22,9 +22,13 @@
 - WAF With wafw00f
   - Herramienta `wafw00f`: `wafw00f <dominio>`
 - Subdomain Enumeration With Sublist3r
+  - Herramienta `sublist3r`: `sublist3r -d <dominio>`
 - Google Dorks
+  - [Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
 - Email Harvesting With theHarvester
+  - Herramienta `theHarvester`: `theHarvester -d <dominio>`
 - Leaked Password Databases
+  - [https://haveibeenpwned.com/](https://haveibeenpwned.com/)
 
 ### Active Information Gathering
 - DNS Zone Transfers
