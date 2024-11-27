@@ -70,4 +70,6 @@
 
 ### Introduction to Web App Security Testing
 
-- 
+- Confidencialidad
+- Disponibilidad
+- Integridad
